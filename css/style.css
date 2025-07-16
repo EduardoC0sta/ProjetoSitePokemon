@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap');
+
+/* Barra de Navegação */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    padding-bottom: 0.5rem;
+    transition: padding 0.3s ease;
+}
+
+main {
+    margin-top: 150px;
+}
+
+.navbar.bg-pokemon-yellow-dark {
+    background-color: #FFDE00 !important;
+    border-bottom: 4px solid #3B4CCA;
+}
+
+/* Logo do site */
+.navbar-brand img {
+    max-height: 75px;
+    width: auto;
+    padding-left: 50%;
+}
+
+.navbar .nav-link {
+    color: #333333;
+    font-weight: 700;
+    transition: color 0.3s ease;
+    margin: 0 0;
+    font-size: 20px;
+}
+
+.navbar .nav-link:hover {
+    color: #3B4CCA;
+}
+
+
+/* Botões no Header */
+.btn-pokemon-nav {
+    background-color: #3B4CCA;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 1px 18px;
+    border-radius: 50px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+}
+
+.btn-pokemon-nav:hover {
+    background-color: #2a3c9a;
+    color: #ffffff;
+}
+
+.btn-pokemon-nav i {
+    font-size: 1.5rem;
+    margin-right: 8px;
+}
+
+
+/* Botãos' */
+.btn-meus-pedidos {
+    background-color: #3B4CCA;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 8px 15px;
+    border-radius: 50px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.btn-meus-pedidos:hover {
+    background-color: #2a3c9a;
+    color: #ffffff;
+}
+
+
+/* Footer */
+footer {
+    background-color: #FFDE00 !important;
+    border-top: 4px solid #3B4CCA;
+}
+
+footer p {
+    color: #333333;
+    font-weight: 700;
+    margin-bottom: 0;
+}
