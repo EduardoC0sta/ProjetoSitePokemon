@@ -8,6 +8,7 @@
     z-index: 999;
     padding-bottom: 0.5rem;
     transition: padding 0.3s ease;
+    padding: 1 1;
 }
 
 main {
@@ -15,7 +16,7 @@ main {
 }
 
 .navbar.bg-pokemon-yellow-dark {
-    background-color: #FFDE00 !important;
+    background-color: white !important;
     border-bottom: 4px solid #3B4CCA;
 }
 
@@ -23,7 +24,6 @@ main {
 .navbar-brand img {
     max-height: 75px;
     width: auto;
-    padding-left: 50%;
 }
 
 .navbar .nav-link {
@@ -89,6 +89,12 @@ main {
 footer {
     background-color: #FFDE00 !important;
     border-top: 4px solid #3B4CCA;
+}
+
+footer p {
+    color: #333333;
+    font-weight: 700;
+    margin-bottom: 0;
 }
 
 footer p {
