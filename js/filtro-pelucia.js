@@ -1,35 +1,56 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Seleciona todos os checkboxes de filtro
     const filterCheckboxes = document.querySelectorAll('.region-filter');
-    
-    // Seleciona todos os cards de produto
     const productItems = document.querySelectorAll('.product-item');
+    const selectedFiltersContainer = document.getElementById('selected-filters-container');
 
-    // Adiciona um "ouvinte" para o evento de mudança em qualquer checkbox
-    filterCheckboxes.forEach(function (checkbox) {
-        checkbox.addEventListener('change', function () {
-            // Cria uma lista para armazenar as regiões selecionadas
-            const selectedRegions = [];
-            
-            // Verifica quais checkboxes estão marcados e adiciona seus valores à lista
-            filterCheckboxes.forEach(function (box) {
-                if (box.checked) {
-                    selectedRegions.push(box.value);
-                }
-            });
+    function updateFilters() {
+        // Limpa as tags existentes antes de recriá-las
+        selectedFiltersContainer.innerHTML = '';
 
-            // Passa por cada item de produto para decidir se deve mostrá-lo ou escondê-lo
-            productItems.forEach(function (item) {
-                const itemRegion = item.dataset.region;
+        const selectedRegions = [];
+        
+        filterCheckboxes.forEach(function (box) {
+            if (box.checked) {
+                selectedRegions.push(box.value);
 
-                // A LÓGICA:
-                // Se nenhuma região está selecionada, OU se a região do item está na lista de selecionadas...
-                if (selectedRegions.length === 0 || selectedRegions.includes(itemRegion)) {
-                    item.style.display = 'block'; // ...então mostra o item.
-                } else {
-                    item.style.display = 'none'; // ...senão, esconde o item.
-                }
-            });
+                // NOVO: Cria a tag para o filtro selecionado
+                const tag = document.createElement('div');
+                tag.className = 'filter-tag';
+                // Pega o texto do label associado ao checkbox
+                const labelText = document.querySelector(`label[for="${box.id}"]`).textContent;
+                tag.innerHTML = `${labelText} <span class="remove-tag">&times;</span>`;
+                tag.dataset.filterValue = box.value;
+                
+                selectedFiltersContainer.appendChild(tag);
+
+                // NOVO: Adiciona evento de clique para remover a tag e desmarcar o checkbox
+                tag.addEventListener('click', function() {
+                    const checkboxToUncheck = document.querySelector(`.region-filter[value="${this.dataset.filterValue}"]`);
+                    if (checkboxToUncheck) {
+                        checkboxToUncheck.checked = false;
+                        // Dispara o evento 'change' para atualizar a lista de produtos e tags
+                        checkboxToUncheck.dispatchEvent(new Event('change'));
+                    }
+                });
+            }
         });
+
+        // Lógica de filtragem dos produtos
+        productItems.forEach(function (item) {
+            const itemRegion = item.dataset.region;
+            if (selectedRegions.length === 0 || selectedRegions.includes(itemRegion)) {
+                item.style.display = 'block';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    }
+
+    // Adiciona o ouvinte de evento 'change' a cada checkbox
+    filterCheckboxes.forEach(function (checkbox) {
+        checkbox.addEventListener('change', updateFilters);
     });
+
+    // Nota: A lógica para a funcionalidade de "Selecionar por" (ordenar os produtos) 
+    // ainda não foi implementada, apenas os elementos visuais foram adicionados.
 });

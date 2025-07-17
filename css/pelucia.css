@@ -1,13 +1,29 @@
-body {
-    padding-top: 105px;
+/* Estilo para o rótulo "Selecionar por:" */
+label[for="sort-by"] {
+    font-weight: 500;
+    color: #333;
+    font-size: 0.9rem;
+}
+
+/* Estilo para a caixa de seleção <select> */
+#sort-by.form-select {
+    font-size: 0.9rem;
+    border-color: #ced4da;
+    cursor: pointer;
+}
+
+#sort-by.form-select:focus {
+    border-color: #0075BE;
 }
 
 /* Barra Lateral de Filtros */
 .filter-sidebar {
     border: none;
     padding: 0;
-    border: 1px solid #333 ;
-    padding: 1rem
+    width: 200px;
+    border: 1px solid #333;
+    padding: 1.5rem;
+
 }
 
 .filter-group {
@@ -39,6 +55,31 @@ body {
 }
 
 
+/* NOVO: Estilo para as tags de filtros selecionados */
+.filter-tag {
+    display: inline-flex;
+    align-items: center;
+    background-color: #e9ecef;
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.filter-tag:hover {
+    background-color: #d8dbe0;
+}
+
+.filter-tag .remove-tag {
+    margin-left: 0.5rem;
+    font-weight: bold;
+    color: #6c757d;
+}
+
+
 /* Botão Filtro */
 .filter-toggle-btn {
     display: flex;
@@ -56,16 +97,27 @@ body {
 .filter-toggle-btn .bi-chevron-up {
     transition: transform 0.3s ease;
 }
+
 .filter-toggle-btn[aria-expanded="false"] .bi-chevron-up {
     transform: rotate(180deg);
 }
 
+.row .product-grid {
+    padding-left: 10%;
+}
 
 /* Estilos para os Cards de Pelúcias -- */
 .product-card {
     border: none;
     transition: all 0.3s ease;
     text-align: center;
+    width: 180px;
+    height: auto;
+}
+
+.product-grid {
+    --bs-gutter-x: 0rem;
+    /* Controla o espaçamento horizontal. O padrão é 1.5rem. */
 }
 
 .product-card .card-img-top {
@@ -92,17 +144,155 @@ body {
     margin-bottom: 1rem;
 }
 
-.btn-add-to-cart {
-    background-color: #FFDE00;
-    color: #333;
-    border: none;
-    font-weight: 700;
-    border-radius: 5px;
-    padding: 10px 20px;
-    transition: background-color 0.3s ease;
-    width: 100%;
+.product-link {
+    text-decoration: none;
+    color: inherit;
 }
 
-.btn-add-to-cart:hover {
-    background-color: #e6c600;
+.product-link:hover {
+    color: inherit;
+}
+
+.product-card {
+    border: 1px solid #e9ecef;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.product-card .card-img-top {
+    width: 100%;
+    max-width: 180px;
+    height: 180px;
+    object-fit: contain;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.product-card .card-title {
+    font-weight: 400;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+
+/* Preços */
+.price-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.product-card .product-price {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0;
+}
+
+
+/* Emblema de promoção */
+.sale-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #ff0000;
+    color: white;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: 5px;
+    z-index: 10;
+}
+
+/*  Tablet (Telas até 990px) ## */
+@media (max-width: 990px) {
+    .filter-sidebar {
+        width: 100%;
+        margin-bottom: 2rem;
+        border: 1px solid #333;
+    }
+}
+
+/* Celulares Maiores e Tablets na vertical (Telas até 767.98px) ## */
+@media (max-width: 760px) {
+    .filter-sidebar {
+        width: 100%;
+        margin-bottom: 2rem;
+        border: 1px solid #333;
+    }
+
+    .product-card .card-title {
+        font-size: 0.9rem;
+    }
+
+    .product-card .product-price {
+        font-size: 1rem;
+    }
+
+    .product-card .card-img-top {
+        max-width: 160px;
+        height: 160px;
+    }
+}
+
+
+/* ## Celulares (Telas até 575.98px) ## */
+@media (max-width: 575.98px) {
+    .filter-sidebar {
+        width: 100%;
+        margin-bottom: 2rem;
+        border: 1px solid #333;
+    }
+
+    .d-flex.justify-content-end {
+        justify-content: center !important;
+    }
+
+    .product-card .card-title {
+        margin-top: 0.25rem;
+    }
+}
+
+
+/* ## Celulares Pequenos (Telas até 440px) ## */
+@media (max-width: 440px) {
+    .filter-sidebar {
+        width: 100%;
+        margin-bottom: 2rem;
+        border: 1px solid #333;
+    }
+
+    .filter-toggle-btn,
+    .form-check-label {
+        font-size: 0.85rem;
+    }
+
+    .product-card .card-title {
+        font-size: 0.85rem;
+    }
+
+    .product-card .product-price {
+        font-size: 0.9rem;
+    }
+
+    .product-card .card-img-top {
+        max-width: 140px;
+        height: 140px;
+        padding: 0.5rem;
+    }
+
+    .d-flex.justify-content-end {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
 }

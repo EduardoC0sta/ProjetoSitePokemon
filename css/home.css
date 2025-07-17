@@ -4,10 +4,10 @@ body {
     color: #333333;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h2 {
+    font-size: 2rem;
     font-weight: 900;
 }
-
 
 /* Itens referentes a: Botões */
 .btn-pokeball-red {
@@ -15,8 +15,8 @@ h1, h2, h3, h4, h5, h6 {
     color: #FFDE00;
     border: 2px solid #000000;
     font-weight: 700;
-    font-size: 0.9rem;
-    padding: 10px 25px;
+    font-size: 0.8rem;
+    padding: 8px 22px;
     border-radius: 50px;
     transition: all 0.3s ease-in-out;
     text-transform: uppercase;
@@ -30,7 +30,38 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
-/* Itens referentes a: Nossas Categorias */
+/* Itens referentes a: Carrossel */
+.carousel-item {
+    height: 450px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.carousel-caption {
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    max-width: 500px;
+    object-fit: contain;
+    margin: 0 auto;
+    padding: 1;
+}
+
+.carousel-caption h5 {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.carousel-caption p {
+    font-size: 0.9rem;
+}
+
+/* Itens referentes a: Cards de Categoria */
 .card {
     border: none;
     border-radius: 15px;
@@ -42,61 +73,41 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
 }
 
+.card img {
+    width: 100%;
+    max-width: 200px;
+    height: 200px;
+    object-fit: contain;
+    margin: 0 auto;
+    padding: 0;
+}
+
 .card .card-footer {
     background-color: transparent;
     border-top: 1px solid #f0f0f0;
 }
 
 
-/* Itens referentes a: Carrossel */
-.carousel-item {
-    height: 600px;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-.carousel-caption {
-    background-color: rgba(0, 0, 0, 0.6);
-    border-radius: 10px;
-    bottom: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    max-width: 550px;
-}
-
-.carousel-caption h5 {
-    font-size: 2rem;
-    font-weight: 900;
-}
-
-.carousel-caption p {
-    font-size: 1rem;
-}
-
-
 /* Itens referentes a: Depoimentos */
 .testimonials-section {
     padding-top: 0;
-    padding-bottom: 60px;
+    padding-bottom: 50px;
 }
 
 .testimonial-card {
     background-color: #ffffff;
     border-left: 5px solid #3B4CCA;
     border-radius: 10px;
-    padding: 25px;
+    padding: 20px;
     text-align: center;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
 .testimonial-card img {
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
     margin-bottom: 15px;
-    object-fit: cover;
     border: 3px solid #FFDE00;
 }
 
@@ -107,116 +118,94 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
-/* Responsividade */
-/* Telas de Tablet */
-@media (max-width: 992px) {
+/* RESPONSIVIDADE */
+/* Para tablets e laptops pequenos (até 980px de largura) */
+@media (max-width: 980px) {
     .carousel-item {
-        height: 450px;
+        height: 400px;
     }
-    .carousel-caption {
-        max-width: 450px;
-        padding: 1rem;
-        bottom: 2rem;
+
+    .carousel-caption h5 {
+        font-size: 1.25rem;
     }
+
+    h2 {
+        font-size: 1.6rem;
+    }
+}
+
+/*  Para tablets (até 780px de largura) */
+@media (max-width: 780px) {
+    body {
+        padding-top: 80px;
+    }
+
+    .carousel-item {
+        height: 350px;
+    }
+
     .carousel-caption h5 {
         font-size: 1rem;
     }
-    .carousel-caption p {
-        font-size: 0.9rem;
+
+    h2 {
+        font-size: 1.35rem;
     }
 
-    .btn-pokeball-red {
-        font-size: 0.8rem;
-        padding: 6px 14px;
-    }
-    
-    .card .card-img-top {
-        max-height: 180px;
-        object-fit: contain;
-    }
-
-    .card .card-title {
-        font-size: 1.1rem;
-    }
-
-    .card .card-text {
-        font-size: 0.9rem;
-        min-height: 54px;
-    }
-    .card .btn-pokeball-red {
-        padding: 8px 20px;
-        font-size: 0.8rem;
+    .testimonial-card {
+        margin-bottom: 1.rem;
     }
 }
 
 /* Para celulares (telas com até 576px de largura) */
 @media (max-width: 576px) {
     .carousel-item {
-        height: 320px;
+        height: 300px;
     }
+
     .carousel-caption {
-        max-width: 85%; /* Caixa ocupa 85% da tela */
-        padding: 0.8rem;
-        bottom: 1.5rem;
+        bottom: 1rem;
+        width: auto;
+        /* Padding um pouco menor para a caixa não ficar tão larga */
+        padding: 0.5rem 1.25rem;
     }
 
     .carousel-caption h5 {
-        font-size: 1rem;
-    }
-
-    .carousel-caption p {
-        display: none;
-    }
-
-    h2 {
-        font-size: 0.9rem;
+        font-size: 0.7rem;
     }
 
     .btn-pokeball-red {
-        font-size: 0.7rem;
-        padding: 6px 14px;
-    }
-    
-     .card .card-img-top {
-        max-height: 160px;
-        object-fit: contain;
-    }
-
-    .card .card-title {
-        font-size: 1rem;
-    }
-
-    .card .card-text {
-        font-size: 0.8rem;
-        min-height: auto;
-    }
-}
-
-/* Para celulares menores (telas com até 375px de largura) */
-@media (max-width: 375px) {
-    .carousel-item {
-        height: 280px;
-    }
-    .carousel-caption {
-        padding: 0.6rem;
-        bottom: 1rem;
-        max-width: 90%;
-    }
-    .carousel-caption h5 {
-        font-size: 0.8rem;
+        font-size: 0.5rem;
+        padding: 6px 18px;
     }
 
     h2 {
         font-size: 1.3rem;
     }
-    
-    .btn-pokeball-red {
-        font-size: 0.5rem;
-        padding: 6px 14px;
+}
+
+/* Para celulares (telas com até 440px de largura) */
+@media (max-width: 440px) {
+    .carousel-item {
+        height: 300px;
     }
-    
-     .card .card-img-top {
-        max-height: 140px;
-        object-fit: contain;
+
+    .carousel-caption {
+        bottom: 1rem;
+        width: auto;
+        padding: 0.5rem 1.25rem;
+    }
+
+    .carousel-caption h5 {
+        font-size: 0.55rem; /* Tamanho do título reduzido */
+    }
+
+    .btn-pokeball-red {
+        font-size: 0.4rem;
+        padding: 6px 18px;
+    }
+
+    h2 {
+        font-size: 1.3rem;
     }
 }
