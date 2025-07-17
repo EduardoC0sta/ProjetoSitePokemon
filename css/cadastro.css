@@ -1,0 +1,69 @@
+/* Imagem a esquerda */
+.img-fluid.rounded-3 {
+    width: 100%;
+    height: auto;
+    display: block;
+   }
+   
+   /* Container do Formulário */
+   .form-container {
+    background-color: #ffffff;
+    padding: 1rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+   }
+   
+   .form-container h2 {
+    font-size: 1.5rem;
+   }
+   
+   
+   /* Estilo dos campos de input (versão compacta) */
+   .form-control {
+    border-radius: 8px;
+    font-size: 0.9rem;
+   }
+   
+   .form-floating > label {
+    padding: 0.8rem;
+    font-size: 0.9rem;
+   }
+   
+   .form-control:focus {
+    border-color: #3B4CCA;
+    box-shadow: 0 0 0 0.2rem rgba(59, 76, 202, 0.2);
+   }
+   
+   
+   /* Botão de Cadastro (versão compacta) */
+   .btn-cadastro {
+    background-color: #3B4CCA;
+    color: white;
+    border: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 0.7rem;
+    border-radius: 8px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+   }
+   
+   .btn-cadastro:hover {
+    background-color: #2a3c9a;
+    color: white;
+   }
+
+   /* --- Footer */
+footer {
+    background-color: #FFDE00 !important;
+    border-top: 4px solid #3B4CCA;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    color: #333333;
+    font-weight: 700;
+    margin-bottom: 0;
+}

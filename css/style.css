@@ -69,6 +69,33 @@ header.sticky-top {
     color: #0075BE;
 }
 
+/* Definições dropdown */
+.login-dropdown-menu {
+    min-width: 300px;
+}
+
+/* Define os botões do dropdown */
+.login-dropdown-menu .btn-primary {
+    background-color: #3B4CCA;
+    border-color: #3B4CCA;
+}
+
+.login-dropdown-menu .btn-primary:hover {
+    background-color: #2a3c9a;
+    border-color: #2a3c9a;
+}
+
+.login-dropdown-menu .btn-secondary {
+    background-color: #3B4CCA;
+    border-color: #3B4CCA;
+}
+
+.login-dropdown-menu .btn-secondary:hover {
+    background-color: #2a3c9a;
+    border-color: #2a3c9a;
+}
+
+
 
 /* --- Navegação Principal (Inferior) --- */
 .main-nav {
