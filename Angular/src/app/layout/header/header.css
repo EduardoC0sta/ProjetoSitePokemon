@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap');
 
 
 /* O header inteiro fica fixo no topo */
@@ -117,27 +116,3 @@ header.sticky-top {
     color: #0075BE;
 }
 
-
-/* --- Footer */
-footer {
-    background-color: #FFDE00 !important;
-    border-top: 4px solid #3B4CCA;
-}
-
-footer p {
-    color: #333333;
-    font-weight: 700;
-    margin-bottom: 0;
-}
-
-.termos-de-uso {
-    font-size: 20px;
-    padding: 1%;
-    margin-right: 5%;
-}
-
-.privacidade {
-    font-size: 20px;
-    padding: 1%;
-    margin-left: 5%;
-}

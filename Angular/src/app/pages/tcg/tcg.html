@@ -1,0 +1,144 @@
+<main class="container-fluid my-5">
+    <div class="row">
+
+        <div class="col-md-3 col-lg-2">
+            <aside class="filter-sidebar">
+                <button class="filter-toggle-btn" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseRegion" aria-expanded="false" aria-controls="collapseRegion">
+                    FILTRAR POR
+                    <i class="bi bi-chevron-up"></i>
+                </button>
+
+                <div class="collapse show" id="collapseRegion">
+                    <div class="filter-group">
+                        <hr>
+                        <h5 class="filter-group-header"> REGIÃO </h5>
+                        <div id="selected-filters-container" class="mb-3"></div>
+
+                        <div class="form-check"> <input class="form-check-input region-filter" type="checkbox"
+                                value="kanto" id="filterKanto"> <label class="form-check-label"
+                                for="filterKanto">Kanto</label> </div>
+                        <div class="form-check"> <input class="form-check-input region-filter" type="checkbox"
+                                value="johto" id="filterJohto"> <label class="form-check-label"
+                                for="filterJohto">Johto</label> </div>
+                        <div class="form-check"> <input class="form-check-input region-filter" type="checkbox"
+                                value="hoenn" id="filterHoenn"> <label class="form-check-label"
+                                for="filterHoenn">Hoenn</label> </div>
+                        <div class="form-check"> <input class="form-check-input region-filter" type="checkbox"
+                                value="sinnoh" id="filterSinnoh"> <label class="form-check-label"
+                                for="filterSinnoh">Sinnoh</label> </div>
+                        <div class="form-check"> <input class="form-check-input region-filter" type="checkbox"
+                                value="unova" id="filterUnova"> <label class="form-check-label"
+                                for="filterUnova">Unova</label> </div>
+                        <div class="form-check"> <input class="form-check-input region-filter" type="checkbox"
+                                value="kalos" id="filterKalos"> <label class="form-check-label"
+                                for="filterKalos">Kalos</label> </div>
+                        <div class="form-check"> <input class="form-check-input region-filter" type="checkbox"
+                                value="alola" id="filterAlola"> <label class="form-check-label"
+                                for="filterAlola">Alola</label> </div>
+                        <div class="form-check"> <input class="form-check-input region-filter" type="checkbox"
+                                value="galar" id="filterGalar"> <label class="form-check-label"
+                                for="filterGalar">Galar</label> </div>
+                        <div class="form-check"> <input class="form-check-input region-filter" type="checkbox"
+                                value="paldea" id="filterPaldea"> <label class="form-check-label"
+                                for="filterPaldea">Paldea</label> </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <div class="col-md-9 col-lg-9 ps-5">
+            <div class="d-flex justify-content-end align-items-center mb-3 sort-section">
+                <label for="sort-by" class="me-2">Selecionar por:</label>
+                <select class="form-select w-auto" id="sort-by">
+                    <option selected>Relevância</option>
+                    <option value="price-asc">Preço mais baixo</option>
+                    <option value="price-desc">Preço mais alto</option>
+                </select>
+            </div>
+            <hr class="mb-4">
+
+            <div>
+                <div class="row product-grid">
+
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 mb-4 product-item" data-region="sinnoh">
+                        <a href="produto.html" class="product-link">
+                            <div class="card product-card h-100"> <!-- <span class="sale-badge">20% OFF</span> -->
+                                <img src="img/cynthia-deck-tcg.png" class="card-img-top" alt="Deck Cynthia">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">Deck Cynthia</h5>
+                                    <div class="price-wrapper">
+                                        <del class="text-muted"> </del> <!-- Inserir preço Original em caso de promoção -->
+                                        <p class="product-price fw-bold">R$310,00</p> <!-- Inserir preço Atual -->
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 mb-4 product-item" data-region="paldea">
+                        <a href="produto.html" class="product-link">
+                            <div class="card product-card h-100"> <!-- <span class="sale-badge">20% OFF</span> -->
+                                <img src="img/bosterpack-paldea.jpg" class="card-img-top" alt="Bostter Pack">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">Boster Pack Scarlet e Violet (4 Packs)</h5>
+                                    <div class="price-wrapper">
+                                        <del class="text-muted"> </del> <!-- Inserir preço Original em caso de promoção -->
+                                        <p class="product-price fw-bold">R$80,00</p> <!-- Inserir preço Atual -->
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 mb-4 product-item" data-region="paldea">
+                        <a href="produto.html" class="product-link">
+                            <div class="card product-card h-100"> <!-- <span class="sale-badge">20% OFF</span> -->
+                                <img src="img/miraidon-deck-tcg.jpg" class="card-img-top" alt="Deck Miraidon">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">Deck Miraidon</h5>
+                                    <div class="price-wrapper">
+                                        <del class="text-muted"> </del> <!-- Inserir preço Original em caso de promoção -->
+                                        <p class="product-price fw-bold">R$270,00</p> <!-- Inserir preço Atual -->
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 mb-4 product-item" data-region="galar">
+                        <a href="produto.html" class="product-link">
+                            <div class="card product-card h-100">
+                                <span class="sale-badge"> 20% OFF</span>
+                                <img src="img/marnie-deck-tcg.png" class="card-img-top" alt="Deck Marnie">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">Deck Marnie</h5>
+                                    <div class="price-wrapper">
+                                        <del class="text-muted">R$350,00</del> <!-- Inserir preço Original em caso de promoção -->
+                                        <p class="product-price fw-bold">R$280,00</p> <!-- Inserir preço Atual -->
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 mb-4 product-item" data-region="unova">
+                        <a href="produto.html" class="product-link">
+                            <div class="card product-card h-100"> <!-- <span class="sale-badge">20% OFF</span> -->
+                                <img src="img/bosterpack-reshiran.jpg" class="card-img-top" alt="Boosterpack Reshiram">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title"> Boster Pack Reshiram (10 packs) </h5>
+                                    <div class="price-wrapper">
+                                        <del class="text-muted"> </del> <!-- Inserir preço Original em caso de promoção -->
+                                        <p class="product-price fw-bold">R$150,00</p> <!-- Inserir preço Atual -->
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
