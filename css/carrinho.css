@@ -1,8 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap');
-
-
 /* O header inteiro fica fixo no topo */
-header.sticky-top {
+header {
     background-color: white;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
@@ -117,6 +114,100 @@ header.sticky-top {
     color: #0075BE;
 }
 
+
+/* --- ESTADO: Carrinho Vazio --- */
+.empty-cart-icon {
+    font-size: 6rem;
+    color: #dee2e6; /* Cinza suave */
+}
+
+.btn-primary-custom {
+    background-color: #3B4CCA; /* Cor azul/roxa principal */
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary-custom:hover {
+    background-color: #2a3c9a; /* Tom mais escuro */
+    color: white;
+}
+
+
+/* --- Estrutura para Itens Futuros --- */
+.cart-item {
+    background-color: white;
+    padding: 1.5rem;
+    border: 1px solid #e9ecef;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.cart-item-title {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #212529;
+}
+
+.cart-item-subtotal {
+    font-size: 1.1rem;
+}
+
+.quantity-selector {
+    max-width: 120px;
+}
+.quantity-selector .form-control {
+    text-align: center;
+}
+
+
+/* --- Resumo do Pedido --- */
+.order-summary-box {
+    background-color: #f8f9fa; /* Cinza suave de fundo */
+    padding: 1.5rem;
+    border: 1px solid #e9ecef;
+    border-radius: 10px;
+    position: sticky;
+    top: 120px; /* Header fixo + um pouco de espaço */
+}
+
+.btn-payment,
+.btn-payment-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 12px;
+    font-weight: 700;
+    font-size: 1rem;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.btn-payment {
+    background-color: #e9ecef;
+    color: #495057;
+    border: 1px solid #dee2e6;
+}
+
+.btn-payment:hover {
+    background-color: #dee2e6;
+}
+
+.btn-payment-main {
+    background-color: #3B4CCA;
+    color: white;
+    border: 1px solid #3B4CCA;
+}
+
+.btn-payment-main:hover {
+    background-color: #2a3c9a;
+}
 
 /* --- Footer */
 footer {
