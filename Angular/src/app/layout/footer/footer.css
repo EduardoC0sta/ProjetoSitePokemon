@@ -1,3 +1,9 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
 /* --- Footer */
 footer {
     background-color: #FFDE00 !important;
@@ -14,10 +20,12 @@ footer p {
     font-size: 20px;
     padding: 1%;
     margin-right: 5%;
+    text-decoration: none;
 }
 
 .privacidade {
     font-size: 20px;
     padding: 1%;
     margin-left: 5%;
+    text-decoration: none;
 }

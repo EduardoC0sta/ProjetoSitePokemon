@@ -1,145 +1,81 @@
-<main class="container-fluid my-5">
-    <div class="row">
+<div class="container my-5">
 
-        <div class="col-md-3 col-lg-2">
-            <aside class="filter-sidebar">
-                <button class="filter-toggle-btn" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#collapseRegion" aria-expanded="false" aria-controls="collapseRegion">
-                    FILTRAR POR
-                    <i class="bi bi-chevron-up"></i>
-                </button>
+  <div class="row mb-4">
+    <div class="col-12"> </div>
+  </div>
 
-                <div class="collapse show" id="collapseRegion">
-                    <div class="filter-group">
-                        <hr>
-                        <h5 class="filter-group-header"> REGIÃO </h5>
-                        <div id="selected-filters-container" class="mb-3"></div>
+  <div class="row">
+    <!-- Coluna dos Filtros -->
+    <div class="col-lg-3">
+      <aside class="filter-sidebar">
+        <button class="filter-toggle-btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseRegion"
+          aria-expanded="true">
+          FILTRAR POR <i class="bi bi-chevron-up"></i>
+        </button>
 
-                        <div class="form-check"> <input class="form-check-input region-filter" type="checkbox"
-                                value="kanto" id="filterKanto"> <label class="form-check-label"
-                                for="filterKanto">Kanto</label> </div>
-                        <div class="form-check"> <input class="form-check-input region-filter" type="checkbox"
-                                value="johto" id="filterJohto"> <label class="form-check-label"
-                                for="filterJohto">Johto</label> </div>
-                        <div class="form-check"> <input class="form-check-input region-filter" type="checkbox"
-                                value="hoenn" id="filterHoenn"> <label class="form-check-label"
-                                for="filterHoenn">Hoenn</label> </div>
-                        <div class="form-check"> <input class="form-check-input region-filter" type="checkbox"
-                                value="sinnoh" id="filterSinnoh"> <label class="form-check-label"
-                                for="filterSinnoh">Sinnoh</label> </div>
-                        <div class="form-check"> <input class="form-check-input region-filter" type="checkbox"
-                                value="unova" id="filterUnova"> <label class="form-check-label"
-                                for="filterUnova">Unova</label> </div>
-                        <div class="form-check"> <input class="form-check-input region-filter" type="checkbox"
-                                value="kalos" id="filterKalos"> <label class="form-check-label"
-                                for="filterKalos">Kalos</label> </div>
-                        <div class="form-check"> <input class="form-check-input region-filter" type="checkbox"
-                                value="alola" id="filterAlola"> <label class="form-check-label"
-                                for="filterAlola">Alola</label> </div>
-                        <div class="form-check"> <input class="form-check-input region-filter" type="checkbox"
-                                value="galar" id="filterGalar"> <label class="form-check-label"
-                                for="filterGalar">Galar</label> </div>
-                        <div class="form-check"> <input class="form-check-input region-filter" type="checkbox"
-                                value="paldea" id="filterPaldea"> <label class="form-check-label"
-                                for="filterPaldea">Paldea</label> </div>
-                    </div>
+        <div class="collapse show" id="collapseRegion">
+          <div class="filter-group">
+            <hr>
+            <h5 class="filter-group-header"> REGIÃO </h5>
+
+            <!-- Tags de Filtros Selecionados -->
+            <div class="selected-filters-container mb-3">
+              <div *ngFor="let filtro of opcoesDeFiltro">
+                <div *ngIf="filtro.selecionado" class="filter-tag" (click)="removerFiltro(filtro)">
+                  {{ filtro.nome }} <span class="remove-tag">&times;</span>
                 </div>
-            </aside>
-        </div>
-
-        <div class="col-md-9 col-lg-9 ps-5">
-            <div class="d-flex justify-content-end align-items-center mb-3 sort-section">
-                <label for="sort-by" class="me-2">Selecionar por:</label>
-                <select class="form-select w-auto" id="sort-by">
-                    <option selected>Relevância</option>
-                    <option value="price-asc">Preço mais baixo</option>
-                    <option value="price-desc">Preço mais alto</option>
-                </select>
+              </div>
             </div>
-            <hr class="mb-4">
 
-            <div>
-                <div class="row product-grid">
-
-                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 mb-4 product-item" data-region="johto">
-                        <a href="produto.html" class="product-link">
-                            <div class="card product-card h-100">
-                                <span class="sale-badge">20% OFF</span>
-                                <img src="img/wopper-plush.jpg" class="card-img-top" alt="Pelúcia Wooper">
-                                <div class="card-body text-center">
-                                    <h5 class="card-title">Pelúcia Wooper</h5>
-                                    <div class="price-wrapper">
-                                        <del class="text-muted">R$250,00</del> <!-- Inserir preço Original em caso de promoção -->
-                                        <p class="product-price fw-bold">R$200,00</p> <!-- Inserir preço Atual -->
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 mb-4 product-item" data-region="kanto">
-                        <a href="produto.html" class="product-link">
-                            <div class="card product-card h-100"> <!-- <span class="sale-badge">20% OFF</span> -->
-                                <img src="img/pikachu-plush.jpg" class="card-img-top" alt="Pelúcia Pikachu">
-                                <div class="card-body text-center">
-                                    <h5 class="card-title">Pelúcia Pikachu Clássico</h5>
-                                    <div class="price-wrapper">
-                                        <del class="text-muted"> </del> <!-- Inserir preço Original em caso de promoção -->
-                                        <p class="product-price fw-bold">R$270,00</p> <!-- Inserir preço Atual -->
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 mb-4 product-item" data-region="alola">
-                        <a href="produto.html" class="product-link">
-                            <div class="card product-card h-100"> <!-- <span class="sale-badge">20% OFF</span> -->
-                                <img src="img/mimikyu-plush.jpg" class="card-img-top" alt="Pelúcia Mimikyu">
-                                <div class="card-body text-center">
-                                    <h5 class="card-title">Pelúcia Mimikyu</h5>
-                                    <div class="price-wrapper">
-                                        <del class="text-muted"> </del> <!-- Inserir preço Original em caso de promoção -->
-                                        <p class="product-price fw-bold">R$260,00</p> <!-- Inserir preço Atual -->
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 mb-4 product-item" data-region="paldea">
-                        <a href="produto.html" class="product-link">
-                            <div class="card product-card h-100"> <!-- <span class="sale-badge">20% OFF</span> -->
-                                <img src="img/fluttermane-plush.jpg" class="card-img-top" alt="Pelúcia Flutter Mane">
-                                <div class="card-body text-center">
-                                    <h5 class="card-title">Pelúcia Flutter Mane</h5>
-                                    <div class="price-wrapper">
-                                        <del class="text-muted"> </del> <!-- Inserir preço Original em caso de promoção -->
-                                        <p class="product-price fw-bold">R$300,00</p> <!-- Inserir preço Atual -->
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 mb-4 product-item" data-region="kanto">
-                        <a href="produto.html" class="product-link">
-                            <div class="card product-card h-100"> <!-- <span class="sale-badge">20% OFF</span> -->
-                                <img src="img/pikachu-plush-kimono.jpg" class="card-img-top"
-                                    alt="Pelúcia Pikachu Kimono">
-                                <div class="card-body text-center">
-                                    <h5 class="card-title"> Pelúcia Pikachu Kimono </h5>
-                                    <div class="price-wrapper">
-                                        <del class="text-muted"> </del> <!-- Inserir preço Original em caso de promoção -->
-                                        <p class="product-price fw-bold">R$290,00</p> <!-- Inserir preço Atual -->
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-                </div>
+            <!-- Checkboxes de Filtro -->
+            <div *ngFor="let opcao of opcoesDeFiltro" class="form-check">
+              <input class="form-check-input region-filter" type="checkbox" [id]="'filter' + opcao.nome"
+                [(ngModel)]="opcao.selecionado" (ngModelChange)="aplicarFiltrosEOrdenacao()">
+              <label class="form-check-label" [for]="'filter' + opcao.nome">{{ opcao.nome }}</label>
             </div>
+
+          </div>
         </div>
+      </aside>
     </div>
-</main>
+
+    <!-- Coluna dos Produtos -->
+    <div class="col-lg-9">
+      <!-- Seção de Ordenação -->
+      <div class="d-flex justify-content-end align-items-center mb-3 sort-section">
+        <label for="sort-by" class="me-2">Selecionar por:</label>
+        <select class="form-select w-auto" id="sort-by" [(ngModel)]="ordenacaoAtual"
+          (ngModelChange)="aplicarFiltrosEOrdenacao()">
+          <option value="relevancia">Relevância</option>
+          <option value="price-asc">Preço mais baixo</option>
+          <option value="price-desc">Preço mais alto</option>
+        </select>
+      </div>
+      <hr class="mb-4">
+
+      <div class="row product-grid">
+        <!-- Mensagem se nenhum produto for encontrado -->
+        <div *ngIf="produtosExibidos.length === 0" class="col-12 text-center">
+          <p>Nenhuma pelúcia encontrada com os filtros selecionados.</p>
+        </div>
+
+        <!-- Loop que cria um card para cada produto na lista 'produtosExibidos' -->
+        <div *ngFor="let produto of produtosExibidos" class="col-xl-3 col-lg-4 col-md-6 col-sm-6 mb-4 product-item">
+          <a [routerLink]="produto.link" class="product-link">
+            <div class="card product-card h-100">
+              <span *ngIf="produto.precoAntigo" class="sale-badge">OFERTA</span>
+              <img [src]="produto.imagem" class="card-img-top" [alt]="produto.nome">
+              <div class="card-body text-center">
+                <h5 class="card-title">{{ produto.nome }}</h5>
+                <div class="price-wrapper">
+                  <del *ngIf="produto.precoAntigo" class="text-muted">{{ produto.precoAntigo | currency:'BRL' }}</del>
+                  <p class="product-price fw-bold">{{ produto.preco | currency:'BRL' }}</p>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

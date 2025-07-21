@@ -1,118 +1,113 @@
-
-
-/* O header inteiro fica fixo no topo */
-header.sticky-top {
+/* O header inteiro */
+header {
     background-color: white;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
 }
 
-
-/* --- Header Superior (Logo, Busca, Ícones) --- */
-.header-top {
-    padding: 0.75rem 0;
-    border-bottom: 1px solid #e9ecef;
+/* --- Header Superior (Logo, Busca e Ações) --- */
+.header-top .container-fluid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1.5rem;
 }
 
 .header-top .navbar-brand img {
-    max-height: 75px;
+    max-height: 70px;
     width: auto;
 }
 
 
 /* Barra de Busca */
 .search-form {
-    width: 60%;
-    padding-left: 20%;
+    flex-grow: 1;
+    margin: 0 2.5rem;
+    max-width: 400px;
+    display: flex;
 }
 
 .search-form .form-control {
+    border: 1px solid #dcdcdc;
     border-right: none;
-    background-color: #f8f9fa;
+    background-color: white;
+    border-radius: 0;
 }
 
 .search-form .form-control:focus {
     box-shadow: none;
-    border-color: #dee2e6;
-    background-color: white;
+    border-color: #3B4CCA;
 }
 
 .btn-search {
     background-color: #3B4CCA;
     color: white;
     border: 1px solid #3B4CCA;
+    border-radius: 0;
 }
 
 .btn-search:hover {
     background-color: #2a3c9a;
-    color: white;
 }
 
 
-/* Links de Ação do Usuário (Login, Pedidos) */
+/* Ações do Usuário (Login, Carrinho) */
+.user-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.rem;
+}
+
 .user-action-link {
     display: flex;
     align-items: center;
     gap: 0.5rem;
     text-decoration: none;
     color: #333;
-    font-weight: 700;
+    font-weight: 500;
+    font-size: 0.9rem;
     white-space: nowrap;
+    transition: color 0.2s ease;
 }
 
 .user-action-link i {
     font-size: 1.5rem;
-    color: #495057;
+    color: #555;
 }
 
 .user-action-link:hover, .user-action-link:hover i {
-    color: #0075BE;
+    color: #3B4CCA;
 }
-
-/* Definições dropdown */
-.login-dropdown-menu {
-    min-width: 300px;
-}
-
-/* Define os botões do dropdown */
-.login-dropdown-menu .btn-primary {
-    background-color: #3B4CCA;
-    border-color: #3B4CCA;
-}
-
-.login-dropdown-menu .btn-primary:hover {
-    background-color: #2a3c9a;
-    border-color: #2a3c9a;
-}
-
-.login-dropdown-menu .btn-secondary {
-    background-color: #3B4CCA;
-    border-color: #3B4CCA;
-}
-
-.login-dropdown-menu .btn-secondary:hover {
-    background-color: #2a3c9a;
-    border-color: #2a3c9a;
-}
-
 
 
 /* --- Navegação Principal (Inferior) --- */
 .main-nav {
-    padding: 0;
     background-color: white;
+    border-top: 1px solid #e9ecef;
     border-bottom: 4px solid #3B4CCA;
+}
+
+.main-nav .container-fluid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50px;
 }
 
 .main-nav .nav-link {
     color: #333;
     font-weight: 700;
-    font-size: 20px;
-    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
     text-transform: uppercase;
-    transition: all 0.3s ease;
+    transition: color 0.3s ease;
 }
 
 .main-nav .nav-link:hover {
-    color: #0075BE;
+    color: #3B4CCA;
 }
 
+
+/* Estilos do Dropdown de Login (mantidos) */
+.login-dropdown-menu { min-width: 300px; }
+.login-dropdown-menu .btn-primary, .login-dropdown-menu .btn-secondary { background-color: #3B4CCA; border-color: #3B4CCA; }
+.login-dropdown-menu .btn-primary:hover, .login-dropdown-menu .btn-secondary:hover { background-color: #2a3c9a; border-color: #2a3c9a; }

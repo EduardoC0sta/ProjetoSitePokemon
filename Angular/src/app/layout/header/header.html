@@ -1,71 +1,75 @@
-<header class="sticky-top">
-    <div class="header-top">
-        <div class="container-fluid d-flex justify-content-between align-items-center">
-            <a class="navbar-brand" href="home.html">
-                <img src="img/logo-loja-pokemon.png" alt="Logo Loja Pokémon">
-            </a>
+<header [class.sticky-top]="isSticky">
+  <div class="header-top">
+    <div class="container-fluid">
 
-            <form class="search-form d-none d-lg-flex">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Buscar Pelúcias, TCG, etc..."
-                        aria-label="Buscar produtos">
-                    <button class="btn btn-search" type="button">
-                        <i class="bi bi-search"></i>
-                    </button>
+      <!-- Bloco 1: Logo -->
+      <a class="navbar-brand" routerLink="/home">
+        <img src="img/logo-loja-pokemon.png" alt="Pokémon Shop Logo">
+      </a>
+
+      <!-- Bloco 2: Barra de Busca -->
+      <form class="search-form d-none d-lg-flex">
+        <input class="form-control" type="search" placeholder="Buscar Pelúcias, TCG, etc..." aria-label="Buscar">
+        <button class="btn btn-search" type="submit"><i class="bi bi-search"></i></button>
+      </form>
+
+      <!-- Bloco 3: Ações do Usuário (Login e Carrinho) -->
+      <div class="user-actions">
+        <!-- Lógica de Login/Logout com *ngIf -->
+        <div *ngIf="!(isLoggedIn$ | async)" class="dropdown">
+          <a class="user-action-link" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-person-circle"></i>
+            <span>Login / Registrar</span>
+          </a>
+          <div class="dropdown-menu p-4 login-dropdown-menu" data-bs-auto-close="outside">
+            <form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()">
+              <div class="mb-3">
+                <label for="dropdownEmail" class="form-label">Email:</label>
+                <input type="email" class="form-control" id="dropdownEmail" formControlName="email" [ngClass]="{ 'is-invalid': loginSubmitted && lf['email'].errors }">
+                <div *ngIf="loginSubmitted && lf['email'].errors" class="invalid-feedback d-block">
+                  <div *ngIf="lf['email'].errors['required']">Email é obrigatório.</div>
+                  <div *ngIf="lf['email'].errors['email']">Email inválido.</div>
                 </div>
+              </div>
+              <div class="mb-3">
+                <label for="dropdownPassword" class="form-label">Senha:</label>
+                <input type="password" class="form-control" id="dropdownPassword" formControlName="senha" [ngClass]="{ 'is-invalid': loginSubmitted && lf['senha'].errors }">
+                <div *ngIf="loginSubmitted && lf['senha'].errors" class="invalid-feedback d-block">
+                  <div *ngIf="lf['senha'].errors['required']">Senha é obrigatória.</div>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary w-100">Logar</button>
             </form>
-
-            <div class="user-actions d-flex align-items-center gap-3">
-
-                <!-- Botão Login -->
-                <div class="dropdown">
-                    <a class="user-action-link" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="bi bi-person-circle"></i>
-                        <span>Login / Registrar</span>
-                    </a>
-
-                    <!-- Dropdwon para Login/Registro -->
-                    <div class="dropdown-menu p-4 login-dropdown-menu" data-bs-auto-close="outside">
-                        <form>
-                            <div class="mb-3">
-                                <label for="dropdownEmail" class="form-label">Email:</label>
-                                <input type="email" class="form-control" id="dropdownEmail" placeholder="seu@email.com">
-                            </div>
-                            <div class="mb-3">
-                                <label for="dropdownPassword" class="form-label">Senha:</label>
-                                <input type="password" class="form-control" id="dropdownPassword"
-                                    placeholder="Sua senha">
-                            </div>
-                            <button type="submit" class="btn btn-primary w-100">Logar</button>
-                        </form>
-                        <div class="text-center mt-2">
-                            <a href="#" class="small">Esqueci minha senha</a>
-                        </div>
-                        <hr class="dropdown-divider">
-                        <p class="text-center small mb-2">Não tem uma conta?</p>
-                        <a class="btn btn-secondary w-100" href="/cadastro">Cadastrar</a>
-                    </div>
-                </div>
-                <!--Botão Carrinho -->
-                <a href="carrinho.html" class="user-action-link">
-                    <i class="bi bi-box-seam-fill"></i>
-                    <span>Carrinho</span>
-                </a>
-            </div>
+            <hr class="dropdown-divider">
+            <a class="btn btn-secondary w-100" routerLink="/cadastro">Cadastrar</a>
+          </div>
         </div>
+        <div *ngIf="isLoggedIn$ | async" class="dropdown">
+          <a class="user-action-link" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-person-fill"></i>
+            <span>Olá, {{ usuario?.nome }} <span *ngIf="usuario?.role === 'admin'">(Admin)</span></span>
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" routerLink="/perfil">Minha Conta</a>
+            <a *ngIf="usuario?.role === 'admin'" class="dropdown-item" routerLink="/dashboard">Dashboard</a>
+            <hr class="dropdown-divider">
+            <a class="dropdown-item" (click)="logout()" style="cursor: pointer;">Sair</a>
+          </div>
+        </div>
+        <a routerLink="/carrinho" class="user-action-link">
+          <i class="bi bi-cart3"></i>
+          <span>Carrinho</span>
+        </a>
+      </div>
     </div>
+  </div>
 
-    <!-- Parte inferior do header-->
-    <nav class="navbar navbar-expand-lg main-nav">
-        <div class="container-fluid">
-
-            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item"> <a class="nav-link" href="/home">Home</a></li>
-                    <li class="nav-item"> <a class="nav-link active" href="/pelucia">Pelúcias</a> </li>
-                    <li class="nav-item"> <a class="nav-link" href="/tcg">Cartas TCG</a> </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+  <!-- NAVEGAÇÃO PRINCIPAL: Contém apenas os links -->
+  <nav class="main-nav">
+    <div class="container-fluid d-flex justify-content-center">
+      <a class="nav-link" routerLink="/home">Home</a>
+      <a class="nav-link" routerLink="/pelucia">Pelúcias</a>
+      <a class="nav-link" routerLink="/tcg">Cartas TCG</a>
+    </div>
+  </nav>
 </header>

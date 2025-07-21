@@ -1,7 +1,12 @@
-<app-header> </app-header>
+<div *ngIf="layoutAtual !== 'dashboard'" class="app-container">
 
-<main>
-  <router-outlet></router-outlet>
-</main>
+  <app-header [isSticky]="layoutAtual === 'principal'"></app-header>
 
-<app-footer> </app-footer>
+  <main class="main-content">
+    <router-outlet></router-outlet>
+  </main>
+
+  <app-footer></app-footer>
+</div>
+
+<router-outlet *ngIf="layoutAtual === 'dashboard'"></router-outlet>

@@ -1,55 +1,66 @@
-<header class="site-header">
-    <div class="container-fluid d-flex justify-content-start align-items-center">           
-        <a href="/home" class="btn btn-pokemon-blue">Voltar ao início</a>
+<div class="container my-5">
+  <div class="row align-items-center justify-content-center g-5">
+
+    <!-- Coluna da Imagem (Esquerda) -->
+    <div class="col-md-12 col-lg-6 text-center mb-4 mb-lg-0">
+      <img src="img/pikachu-tela-cadastro.png" class="img-fluid rounded-3"
+        alt="Pikachu te dando boas-vindas à Loja Pokémon">
     </div>
-</header>
 
-<main class="container my-5">
-    <div class="row align-items-center justify-content-center">
-
-        <div class="col-md-6 d-flex justify-content-start">
-            <img src="img/pikachu-tela-cadastro.png" class="img-fluid rounded-3"
-                alt="Pikachu te dando boas-vindas à Loja Pokémon">
+    <!-- Coluna do Formulário (Direita) -->
+    <div class="col-md-12 col-lg-6">
+    <div class="form-container">
+      <h2 class="text-center fw-bold mb-4">Crie sua Conta</h2>
+      <form [formGroup]="cadastroForm" (ngSubmit)="onSubmit()">
+        <!-- Campo Nome Completo -->
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="nome" placeholder="Seu Nome Completo" formControlName="nome"
+            [ngClass]="{ 'is-invalid': submitted && f['nome'].errors }">
+          <label for="nome">Nome Completo</label>
+          <div *ngIf="submitted && f['nome'].errors" class="invalid-feedback">
+            <div *ngIf="f['nome'].errors['required']">Nome completo é obrigatório.</div>
+            <div *ngIf="f['nome'].errors['nomeIncompleto']">Por favor, insira seu nome e sobrenome.</div>
+          </div>
         </div>
-
-        <div class="col-md-6">
-            <div class="form-container">
-                <h2 class="text-center fw-bold mb-4">Crie sua Conta</h2>
-                <form>
-                    <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="nome" placeholder="Seu Nome Completo" required>
-                        <label for="nome">Nome Completo</label>
-                    </div>
-
-                    <div class="form-floating mb-3">
-                        <input type="email" class="form-control" id="email" placeholder="nome@exemplo.com" required>
-                        <label for="email">Endereço de Email</label>
-                    </div>
-
-                    <div class="form-floating mb-3">
-                        <input type="password" class="form-control" id="senha" placeholder="Senha" required>
-                        <label for="senha">Senha</label>
-                    </div>
-
-                    <div class="form-floating mb-4">
-                        <input type="password" class="form-control" id="confirmarSenha" placeholder="Confirmar Senha"
-                            required>
-                        <label for="confirmarSenha">Confirmar Senha</label>
-                    </div>
-
-                    <div class="d-grid">
-                        <button class="btn btn-cadastro" type="submit">Criar Conta</button>
-                    </div>
-                </form>
-            </div>
+        <!-- Campo Email -->
+        <div class="form-floating mb-3">
+          <input type="email" class="form-control" id="email" placeholder="nome@exemplo.com" formControlName="email"
+            [ngClass]="{ 'is-invalid': submitted && f['email'].errors }">
+          <label for="email">Endereço de Email</label>
+          <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+            <div *ngIf="f['email'].errors['required']">Email é obrigatório.</div>
+            <div *ngIf="f['email'].errors['email']">Por favor, insira um email válido.</div>
+          </div>
         </div>
+        <!-- Campo Senha -->
+        <div class="form-floating mb-3">
+          <input type="password" class="form-control" id="senha" placeholder="Senha" formControlName="senha"
+            [ngClass]="{ 'is-invalid': submitted && f['senha'].errors }">
+          <label for="senha">Senha</label>
+          <div *ngIf="submitted && f['senha'].errors" class="invalid-feedback">
+            <div *ngIf="f['senha'].errors['required']">Senha é obrigatória.</div>
+            <div *ngIf="f['senha'].errors['minlength']">A senha deve ter no mínimo 6 caracteres.</div>
+            <div *ngIf="f['senha'].errors['pattern']">A senha deve conter pelo menos um caractere especial.</div>
+          </div>
+        </div>
+        <!-- Campo Confirmar Senha -->
+        <div class="form-floating mb-4">
+          <input type="password" class="form-control" id="confirmarSenha" placeholder="Confirmar Senha"
+            formControlName="confirmarSenha"
+            [ngClass]="{ 'is-invalid': submitted && (f['confirmarSenha'].errors || cadastroForm.errors?.['senhasNaoCoincidem']) }">
+          <label for="confirmarSenha">Confirmar Senha</label>
+          <div *ngIf="submitted && (f['confirmarSenha'].errors || cadastroForm.errors?.['senhasNaoCoincidem'])"
+            class="invalid-feedback">
+            <div *ngIf="f['confirmarSenha'].errors?.['required']">A confirmação de senha é obrigatória.</div>
+            <div *ngIf="cadastroForm.errors?.['senhasNaoCoincidem']">As senhas não coincidem.</div>
+          </div>
+        </div>
+        <div class="d-grid">
+          <button class="btn btn-cadastro" type="submit">Criar Conta</button>
+        </div>
+      </form>
     </div>
-</main>
+  </div>
 
-    <footer class="bg-pokemon-yellow-dark text-center p-3">
-        <div class="container">
-            <p> &copy;2025 Pokémon. &copy;1995 - 2025 Nintendo / Todos os direitos reservados. </p>
-            <a href="https://www.pokemoncenter.com/terms-of-use" class="termos-de-uso"> Termos de uso </a>
-            <a href="https://www.pokemon.com/us/legal/privacy-notice" class="privacidade"> Privacidade </a> 
-        </div>
-    </footer>
+</div>
+</div>

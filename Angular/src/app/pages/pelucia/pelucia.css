@@ -1,35 +1,37 @@
-/* Estilo para o rótulo "Selecionar por:" */
-label[for="sort-by"] {
+/* Ordenação */
+.sort-section label {
     font-weight: 500;
     color: #333;
     font-size: 0.9rem;
 }
 
-/* Estilo para a caixa de seleção <select> */
-#sort-by.form-select {
+.sort-section .form-select {
     font-size: 0.9rem;
     border-color: #ced4da;
     cursor: pointer;
 }
 
-#sort-by.form-select:focus {
+.sort-section .form-select:focus {
     border-color: #0075BE;
 }
 
+
 /* Barra Lateral de Filtros */
 .filter-sidebar {
-    border: none;
-    padding: 0;
-    width: 200px;
-    border: 1px solid #333;
-    padding: 1.5rem;
-
+    border: 1px solid #e0e0e0;
+    padding: 1rem;
+    border-radius: 4px;
 }
 
 .filter-group {
     padding-bottom: 1rem;
     margin-bottom: 1rem;
     border-bottom: 1px solid #e9ecef;
+}
+
+.filter-group:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
 }
 
 .filter-group-header {
@@ -40,12 +42,8 @@ label[for="sort-by"] {
     margin-bottom: 1rem;
 }
 
-.form-check {
-    margin-bottom: 0.75rem;
-}
-
 .form-check-label {
-    font-size: 1rem;
+    font-size: 0.95rem;
     color: #333;
 }
 
@@ -55,32 +53,31 @@ label[for="sort-by"] {
 }
 
 
-/* NOVO: Estilo para as tags de filtros selecionados */
+/* Tags de Filtros Selecionados */
+.selected-filters-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
 .filter-tag {
     display: inline-flex;
     align-items: center;
     background-color: #e9ecef;
     border: 1px solid #dee2e6;
     border-radius: 0.25rem;
+    padding: 0.25rem 0.5rem;
     font-size: 0.875rem;
-    margin-right: 0.5rem;
-    margin-bottom: 0.5rem;
     cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.filter-tag:hover {
-    background-color: #d8dbe0;
 }
 
 .filter-tag .remove-tag {
     margin-left: 0.5rem;
     font-weight: bold;
-    color: #6c757d;
 }
 
 
-/* Botão Filtro */
+/* Botão de Toggle do Filtro */
 .filter-toggle-btn {
     display: flex;
     justify-content: space-between;
@@ -88,9 +85,11 @@ label[for="sort-by"] {
     width: 100%;
     background-color: transparent;
     border: none;
-    padding: 0.5rem 0;
+    padding: 0;
+    margin-bottom: 1rem;
     font-weight: 700;
     font-size: 1rem;
+    color: #0075BE;
     text-transform: uppercase;
 }
 
@@ -103,51 +102,9 @@ label[for="sort-by"] {
 }
 
 
-/* Estilos para os Cards de Pelúcias -- */
-.product-card {
-    border: none;
-    transition: all 0.3s ease;
-    text-align: center;
-    width: 180px;
-    height: auto;
-}
-
-.product-grid {
-    --bs-gutter-x: 0rem;
-    padding-left: 50px;
-}
-
-
-.product-card .card-img-top {
-    width: 100%;
-    max-width: 180px;
-    height: 180px;
-    object-fit: contain;
-    margin: 0 auto;
-    padding: 0;
-}
-
-.product-card .card-title {
-    font-weight: 400;
-    color: #000;
-    margin-top: 1rem;
-    margin-bottom: 0.25rem;
-    font-size: 1rem;
-}
-
-.product-card .product-price {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: #000;
-    margin-bottom: 1rem;
-}
-
+/* Grid e Cards de Produtos */
 .product-link {
-    text-decoration: none;
-    color: inherit;
-}
-
-.product-link:hover {
+    text-decoration: none !important;
     color: inherit;
 }
 
@@ -156,7 +113,6 @@ label[for="sort-by"] {
     border-radius: 10px;
     transition: all 0.3s ease;
     text-align: center;
-    position: relative;
     overflow: hidden;
 }
 
@@ -167,22 +123,18 @@ label[for="sort-by"] {
 
 .product-card .card-img-top {
     width: 100%;
-    max-width: 180px;
     height: 180px;
     object-fit: contain;
-    margin: 0 auto;
     padding: 1rem;
 }
 
 .product-card .card-title {
-    font-weight: 400;
+    font-weight: 600;
     font-size: 1rem;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
 }
 
-
-/* Preços */
 .price-wrapper {
     display: flex;
     justify-content: center;
@@ -196,8 +148,6 @@ label[for="sort-by"] {
     margin-bottom: 0;
 }
 
-
-/* Emblema de promoção */
 .sale-badge {
     position: absolute;
     top: 10px;
@@ -208,26 +158,16 @@ label[for="sort-by"] {
     font-size: 0.75rem;
     font-weight: 700;
     border-radius: 5px;
-    z-index: 10;
 }
 
-/*  Tablet (Telas até 990px) ## */
+/* Responsividade */
 @media (max-width: 990px) {
     .filter-sidebar {
-        width: 100%;
         margin-bottom: 2rem;
-        border: 1px solid #333;
     }
 }
 
-/* Celulares Maiores e Tablets na vertical (Telas até 767.98px) ## */
-@media (max-width: 760px) {
-    .filter-sidebar {
-        width: 100%;
-        margin-bottom: 2rem;
-        border: 1px solid #333;
-    }
-
+@media (max-width: 767.98px) {
     .product-card .card-title {
         font-size: 0.9rem;
     }
@@ -237,60 +177,28 @@ label[for="sort-by"] {
     }
 
     .product-card .card-img-top {
-        max-width: 160px;
         height: 160px;
     }
 }
 
-
-/* ## Celulares (Telas até 575.98px) ## */
-@media (max-width: 575.98px) {
-    .filter-sidebar {
-        width: 100%;
-        margin-bottom: 2rem;
-        border: 1px solid #333;
-    }
-
-    .d-flex.justify-content-end {
+@media (max-width: 576px) {
+    .sort-section {
         justify-content: center !important;
-    }
-
-    .product-card .card-title {
-        margin-top: 0.25rem;
     }
 }
 
-
-/* ## Celulares Pequenos (Telas até 440px) ## */
-@media (max-width: 440px) {
-    .filter-sidebar {
-        width: 100%;
-        margin-bottom: 2rem;
-        border: 1px solid #333;
+@media (max-width: 400px) {
+    .product-grid .product-item {
+        flex: 0 0 100%;
+        max-width: 100%;
     }
 
-    .filter-toggle-btn,
-    .form-check-label {
-        font-size: 0.85rem;
-    }
-
-    .product-card .card-title {
-        font-size: 0.85rem;
-    }
-
-    .product-card .product-price {
-        font-size: 0.9rem;
+    .sort-section {
+        flex-direction: column;
+        gap: 0.5rem;
     }
 
     .product-card .card-img-top {
-        max-width: 140px;
-        height: 140px;
-        padding: 0.5rem;
-    }
-
-    .d-flex.justify-content-end {
-        flex-direction: column;
-        align-items: center;
-        gap: 0.5rem;
+        height: 200px;
     }
 }
