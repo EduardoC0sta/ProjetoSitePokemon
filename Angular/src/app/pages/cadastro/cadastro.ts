@@ -30,30 +30,34 @@ export class Cadastro implements OnInit {
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
-    private router: Router // Injete o Router
+    private router: Router
   ) {}
 
   ngOnInit(): void {
     this.cadastroForm = this.fb.group({
       nome: ['', [Validators.required, nomeCompletoValidator]],
       email: ['', [Validators.required, Validators.email]],
-      senha: ['', [  Validators.required, Validators.minLength(6), Validators.pattern('^.*[!@#$%^&*(),.?":{}|<>].*$') ]],
-      confirmarSenha: ['', Validators.required]
+      senha: ['', [ Validators.required, Validators.minLength(6), Validators.pattern('^.*[!@#$%^&*(),.?":{}|<>].*$') ]],
+      confirmarSenha: ['', Validators.required],
+      // 1. ADICIONE O NOVO CAMPO DE CONTROLE AQUI
+      aceiteLgpd: [false, Validators.requiredTrue]
     }, { validators: senhasIguaisValidator });
   }
-
 
   get f() { return this.cadastroForm.controls; }
 
   onSubmit(): void {
     this.submitted = true;
-    if (this.cadastroForm.invalid) return;
+    if (this.cadastroForm.invalid) {
+      console.log("Formulário inválido:", this.cadastroForm.errors);
+      return;
+    }
 
     this.authService.cadastrar(this.cadastroForm.value).subscribe({
       next: (response) => {
         console.log('Cadastro bem-sucedido!', response);
         alert('Conta criada com sucesso! Você será redirecionado para a página inicial.');
-        this.router.navigate(['/home']); // Redireciona para a home
+        this.router.navigate(['/home']);
       },
       error: (err) => {
         console.error('Erro no cadastro:', err);

@@ -11,14 +11,17 @@ export class ProductService {
 
   constructor(private http: HttpClient) { }
 
-  // Busca todos os produtos (pelúcias e tcg) de uma vez
   getTodosOsProdutos(): Observable<any[]> {
     const pelucias$ = this.http.get<any[]>(`${this.apiUrl}/produtos/pelucias`);
     const tcg$ = this.http.get<any[]>(`${this.apiUrl}/produtos/tcg`);
 
-    // forkJoin combina as duas chamadas em uma só resposta
     return forkJoin([pelucias$, tcg$]).pipe(
-      map(([pelucias, tcg]) => [...pelucias, ...tcg]) // Junta os dois arrays
+      map(([pelucias, tcg]) => [...pelucias, ...tcg])
     );
+  }
+
+  // ADICIONE ESTE MÉTODO QUE ESTAVA FALTANDO
+  getProdutoPorId(id: number): Observable<any> {
+    return this.http.get(`${this.apiUrl}/produtos/${id}`);
   }
 }

@@ -13,7 +13,6 @@ export class DashboardHeader {
   constructor(private authService: AuthService) {}
 
   logout(): void {
-    // Chama a função de logout
     this.authService.logout();
   }
 }

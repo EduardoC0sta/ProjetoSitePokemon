@@ -10,7 +10,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname)));
 
-// BANCO DE DADOS SIMULADO (MOCK DATABASE)
+// BANCO DE DADOS SIMULADO
 const db = {
     // --- Dados de Usuários com a propriedade "role" ---
     usuarios: [
@@ -121,7 +121,7 @@ const db = {
     ],
     tcg: [
         {
-            id: 200,
+            id: 201,
             sku: "TCG-DECK-CYN-01", nome: 'Deck Cynthia', regiao: 'sinnoh', preco: 310.00, imagem: 'img/cynthia-deck-tcg.png', estoque: 20, emEstoque: true, emDestaque: true, categoria: "TCG",
             descricaoCurta: "Domine seus oponentes com o poderoso deck da campeã de Sinnoh, Cynthia.",
             descricaoLonga: "Este deck de batalha completo é uma recriação fiel da estratégia da campeã Cynthia, focado em Pokémon do tipo Dragão e Terrestre. Inclui 60 cartas, um guia de estratégias e acessórios de jogo.",
@@ -129,14 +129,14 @@ const db = {
             avaliacoes: []
         },
         {
-            id: 201, sku: "TCG-BST-PALDEA-04", nome: 'Booster Pack Scarlet e Violet (4 Packs)', regiao: 'paldea', preco: 80.00, imagem: 'img/bosterpack-paldea.jpg', estoque: 50, emEstoque: true, emDestaque: false, categoria: "TCG",
+            id: 202, sku: "TCG-BST-PALDEA-04", nome: 'Booster Pack Scarlet e Violet (4 Packs)', regiao: 'paldea', preco: 80.00, imagem: 'img/bosterpack-paldea.jpg', estoque: 50, emEstoque: true, emDestaque: false, categoria: "TCG",
             descricaoCurta: "Explore a região de Paldea com este conjunto de booster packs.",
             descricaoLonga: "Aventure-se pela região de Paldea com este kit contendo 4 pacotes de booster da coleção Escarlate e Violeta. Cada pacote contém 10 cartas e uma carta de energia.",
             tags: ['booster', 'paldea', 'escarlate', 'violeta'],
             avaliacoes: []
         },
         {
-            id: 202,
+            id: 203,
             sku: "TCG-DECK-MIRA-01", nome: 'Deck Miraidon', regiao: 'paldea', preco: 270.00, imagem: 'img/miraidon-deck-tcg.jpg', estoque: 18, emEstoque: true, emDestaque: false, categoria: "TCG",
             descricaoCurta: "Acelere para a vitória com o deck temático do lendário Miraidon.",
             descricaoLonga: "Um deck de batalha focado em Pokémon do tipo Elétrico e no poder avassalador de Miraidon ex. Contém 60 cartas prontas para jogar, contadores de dano e um livro de regras.",
@@ -144,7 +144,7 @@ const db = {
             avaliacoes: []
         },
         {
-            id: 203,
+            id: 204,
             sku: "TCG-DECK-MARN-01", nome: 'Deck Marnie', regiao: 'galar', preco: 280.00, precoAntigo: 350.00, imagem: 'img/marnie-deck-tcg.png', estoque: 5, emEstoque: true, emDestaque: true, categoria: "TCG",
             descricaoCurta: "Mostre seu espírito competitivo com o deck de uma das rivais mais queridas de Galar.",
             descricaoLonga: "Este conjunto premium de torneio da Marnie inclui um deck completo, protetores de cartas, uma caixa de deck e dados, tudo com a arte exclusiva da personagem.",
@@ -152,7 +152,7 @@ const db = {
             avaliacoes: []
         },
         {
-            id: 204, sku: "TCG-BST-UNOVA-10", nome: 'Booster Pack Reshiram (10 packs)', regiao: 'unova', preco: 150.00, imagem: 'img/bosterpack-reshiran.jpg', estoque: 25, emEstoque: true, emDestaque: false, categoria: "TCG",
+            id: 205, sku: "TCG-BST-UNOVA-10", nome: 'Booster Pack Reshiram (10 packs)', regiao: 'unova', preco: 150.00, imagem: 'img/bosterpack-reshiran.jpg', estoque: 25, emEstoque: true, emDestaque: false, categoria: "TCG",
             descricaoCurta: "Liberte o poder vasto e verdadeiro com este conjunto de boosters do Reshiram.",
             descricaoLonga: "Pacote econômico contendo 10 boosters da coleção Black & White, com a chance de encontrar cartas raras de Reshiram e Zekrom. Ideal para expandir sua coleção.",
             tags: ['booster', 'unova', 'reshiram', 'black & white'],

@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductService } from '../../services/product';
 
-// A interface Produto permanece a mesma
 interface Produto {
   id: number;
   sku: string;
@@ -46,5 +45,4 @@ export class Dashboard implements OnInit {
     this.produtoSelecionado = this.todosOsProdutos.find(p => p.id === produtoId) || null;
   }
 
-  // A função getProdutosPorCategoria foi removida
 }

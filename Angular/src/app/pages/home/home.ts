@@ -5,10 +5,7 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [
-    RouterLink,
-    CommonModule
-  ],
+  imports: [ RouterLink, CommonModule ],
   templateUrl: './home.html',
   styleUrls: ['./home.css']
 })

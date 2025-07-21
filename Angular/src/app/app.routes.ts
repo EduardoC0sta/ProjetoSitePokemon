@@ -7,12 +7,14 @@ import { Cadastro } from './pages/cadastro/cadastro';
 import { Dashboard } from './pages/dashboard/dashboard';
 import { authGuard } from './guards/auth-guard';
 import { DashboardLayout } from './layout/dashboard-layout/dashboard-layout';
+import { Produto } from './pages/produto/produto';
 
 export const routes: Routes = [
     // Rotas com layout padrão (sticky)
     { path: 'home', component: Home },
     { path: 'pelucia', component: Pelucia },
     { path: 'tcg', component: Tcg },
+    { path: 'produto/:id', component: Produto },
 
     // Rotas com o layout SIMPLES (header não-fixo)
     { path: 'carrinho', component: Carrinho, data: { layout: 'simple' } },

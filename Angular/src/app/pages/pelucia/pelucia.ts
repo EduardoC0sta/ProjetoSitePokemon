@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms'; // Importe para usar o ngModel
-import { RouterLink } from '@angular/router'; // Importe para usar o routerLink
+import { FormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 
-// Interface para tipar nossos dados
 interface Produto {
   id: number;
   nome: string;
@@ -27,16 +26,14 @@ interface Produto {
 })
 export class Pelucia implements OnInit {
 
-  // 1. DADOS: Lista completa de todas as pelúcias
   todosOsProdutos: Produto[] = [
-    { id: 1, nome: 'Pelúcia Wooper', regiao: 'johto', preco: 200.00, precoAntigo: 250.00, imagem: 'img/wopper-plush.jpg', link: '/produto' },
-    { id: 2, nome: 'Pelúcia Pikachu Clássico', regiao: 'kanto', preco: 270.00, imagem: 'img/pikachu-plush.jpg', link: '/produto' },
-    { id: 3, nome: 'Pelúcia Mimikyu', regiao: 'alola', preco: 260.00, imagem: 'img/mimikyu-plush.jpg', link: '/produto' },
-    { id: 4, nome: 'Pelúcia Flutter Mane', regiao: 'paldea', preco: 300.00, imagem: 'img/fluttermane-plush.jpg', link: '/produto' },
-    { id: 5, nome: 'Pelúcia Pikachu Kimono', regiao: 'kanto', preco: 290.00, imagem: 'img/pikachu-plush-kimono.jpg', link: '/produto' }
+    { id: 101, nome: 'Pelúcia Wooper', regiao: 'johto', preco: 200.00, precoAntigo: 250.00, imagem: 'img/wopper-plush.jpg', link: '/produto' },
+    { id: 102, nome: 'Pelúcia Pikachu Clássico', regiao: 'kanto', preco: 270.00, imagem: 'img/pikachu-plush.jpg', link: '/produto' },
+    { id: 103, nome: 'Pelúcia Mimikyu', regiao: 'alola', preco: 260.00, imagem: 'img/mimikyu-plush.jpg', link: '/produto' },
+    { id: 104, nome: 'Pelúcia Flutter Mane', regiao: 'paldea', preco: 300.00, imagem: 'img/fluttermane-plush.jpg', link: '/produto' },
+    { id: 105, nome: 'Pelúcia Pikachu Kimono', regiao: 'kanto', preco: 290.00, imagem: 'img/pikachu-plush-kimono.jpg', link: '/produto' }
   ];
 
-  // 2. ESTADO: Variáveis que controlam a exibição
   produtosExibidos: Produto[] = [];
   opcoesDeFiltro = [
     { nome: 'Kanto', valor: 'kanto', selecionado: false },
@@ -57,10 +54,10 @@ export class Pelucia implements OnInit {
     this.aplicarFiltrosEOrdenacao();
   }
 
-  // 3. LÓGICA: A mesma função de antes, agora para as pelúcias
   aplicarFiltrosEOrdenacao(): void {
     let produtosFiltrados: Produto[];
 
+    // Aplique os filtros de região
     const regioesSelecionadas = this.opcoesDeFiltro
       .filter(opcao => opcao.selecionado)
       .map(opcao => opcao.valor);
@@ -73,11 +70,15 @@ export class Pelucia implements OnInit {
       );
     }
 
+    // ordenação à lista já filtrada
     switch (this.ordenacaoAtual) {
       case 'price-asc':
+        // Ordena do menor para o maior preço
         produtosFiltrados.sort((a, b) => a.preco - b.preco);
         break;
       case 'price-desc':
+        // Ordena do maior para o menor preço
+
         produtosFiltrados.sort((a, b) => b.preco - a.preco);
         break;
     }
@@ -85,6 +86,7 @@ export class Pelucia implements OnInit {
     this.produtosExibidos = produtosFiltrados;
   }
 
+  // Remover filtro ao clicar na tag
   removerFiltro(filtro: any): void {
     filtro.selecionado = false;
     this.aplicarFiltrosEOrdenacao();

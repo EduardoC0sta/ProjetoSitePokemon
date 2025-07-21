@@ -22,16 +22,14 @@ interface Produto {
 })
 export class Tcg implements OnInit {
 
-  // Lista completa e imutável de todos os produtos
   todosOsProdutos: Produto[] = [
-    { id: 1, nome: 'Deck Cynthia', regiao: 'sinnoh', preco: 310.00, imagem: 'img/cynthia-deck-tcg.png', link: '/produto' },
-    { id: 2, nome: 'Booster Pack Scarlet e Violet (4 Packs)', regiao: 'paldea', preco: 80.00, imagem: 'img/bosterpack-paldea.jpg', link: '/produto' },
-    { id: 3, nome: 'Deck Miraidon', regiao: 'paldea', preco: 270.00, imagem: 'img/miraidon-deck-tcg.jpg', link: '/produto' },
-    { id: 4, nome: 'Deck Marnie', regiao: 'galar', preco: 280.00, precoAntigo: 350.00, imagem: 'img/marnie-deck-tcg.png', link: '/produto' },
-    { id: 5, nome: 'Booster Pack Reshiram (10 packs)', regiao: 'unova', preco: 150.00, imagem: 'img/bosterpack-reshiran.jpg', link: '/produto' }
+    { id: 201, nome: 'Deck Cynthia', regiao: 'sinnoh', preco: 310.00, imagem: 'img/cynthia-deck-tcg.png', link: '/produto' },
+    { id: 202, nome: 'Booster Pack Scarlet e Violet (4 Packs)', regiao: 'paldea', preco: 80.00, imagem: 'img/bosterpack-paldea.jpg', link: '/produto' },
+    { id: 203, nome: 'Deck Miraidon', regiao: 'paldea', preco: 270.00, imagem: 'img/miraidon-deck-tcg.jpg', link: '/produto' },
+    { id: 204, nome: 'Deck Marnie', regiao: 'galar', preco: 280.00, precoAntigo: 350.00, imagem: 'img/marnie-deck-tcg.png', link: '/produto' },
+    { id: 205, nome: 'Booster Pack Reshiram (10 packs)', regiao: 'unova', preco: 150.00, imagem: 'img/bosterpack-reshiran.jpg', link: '/produto' }
   ];
 
-  // Variáveis que controlam o estado atual da UI
   produtosExibidos: Produto[] = [];
   opcoesDeFiltro = [
     { nome: 'Kanto', valor: 'kanto', selecionado: false },
@@ -78,7 +76,7 @@ export class Tcg implements OnInit {
     this.produtosExibidos = produtosProcessados;
   }
 
-  // Função para remover um filtro ao clicar na tag
+  // Remover filtro ao clicar na tag
   removerFiltro(filtro: any): void {
     filtro.selecionado = false;
     this.aplicarFiltrosEOrdenacao();

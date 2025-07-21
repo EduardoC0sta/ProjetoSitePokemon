@@ -1,21 +1,22 @@
-<header [class.sticky-top]="isSticky">
+<header class="sticky-top">
   <div class="header-top">
     <div class="container-fluid">
 
-      <!-- Bloco 1: Logo -->
+      <button class="navbar-toggler d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#mobileNavContent" aria-controls="mobileNavContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="bi bi-list"></i>
+      </button>
+
       <a class="navbar-brand" routerLink="/home">
         <img src="img/logo-loja-pokemon.png" alt="Pokémon Shop Logo">
       </a>
 
-      <!-- Bloco 2: Barra de Busca -->
-      <form class="search-form d-none d-lg-flex">
-        <input class="form-control" type="search" placeholder="Buscar Pelúcias, TCG, etc..." aria-label="Buscar">
-        <button class="btn btn-search" type="submit"><i class="bi bi-search"></i></button>
-      </form>
+      <nav class="main-nav-links d-none d-md-flex">
+        <a class="nav-link" routerLink="/home">Home</a>
+        <a class="nav-link" routerLink="/pelucia">Pelúcias</a>
+        <a class="nav-link" routerLink="/tcg">Cartas TCG</a>
+      </nav>
 
-      <!-- Bloco 3: Ações do Usuário (Login e Carrinho) -->
-      <div class="user-actions">
-        <!-- Lógica de Login/Logout com *ngIf -->
+      <div class="user-actions d-none d-md-flex">
         <div *ngIf="!(isLoggedIn$ | async)" class="dropdown">
           <a class="user-action-link" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="bi bi-person-circle"></i>
@@ -41,6 +42,7 @@
               <button type="submit" class="btn btn-primary w-100">Logar</button>
             </form>
             <hr class="dropdown-divider">
+            <p style="text-align: center;"> Não possui uma conta? </p>
             <a class="btn btn-secondary w-100" routerLink="/cadastro">Cadastrar</a>
           </div>
         </div>
@@ -61,15 +63,32 @@
           <span>Carrinho</span>
         </a>
       </div>
+
+      <div class="collapse navbar-collapse" id="mobileNavContent">
+        <div class="mobile-nav-header">
+            <div *ngIf="!(isLoggedIn$ | async)">
+                <a class="user-action-link" routerLink="/cadastro">
+                    <i class="bi bi-person-circle"></i>
+                    <span>Login / Registrar</span>
+                </a>
+            </div>
+            <div *ngIf="isLoggedIn$ | async">
+                <a class="user-action-link" routerLink="/perfil">
+                    <i class="bi bi-person-fill"></i>
+                    <span>Olá, {{ usuario?.nome }}</span>
+                </a>
+            </div>
+            <button type="button" class="btn-close" data-bs-toggle="collapse" data-bs-target="#mobileNavContent" aria-label="Close"></button>
+        </div>
+        <hr>
+        <div class="mobile-nav-links">
+            <a class="nav-link" routerLink="/home">Home</a>
+            <a class="nav-link" routerLink="/pelucia">Pelúcias</a>
+            <a class="nav-link" routerLink="/tcg">Cartas TCG</a>
+            <a class="nav-link" routerLink="/carrinho">Carrinho</a>
+             <a *ngIf="isLoggedIn$ | async" class="nav-link" (click)="logout()" style="cursor: pointer;">Sair</a>
+        </div>
+      </div>
     </div>
   </div>
-
-  <!-- NAVEGAÇÃO PRINCIPAL: Contém apenas os links -->
-  <nav class="main-nav">
-    <div class="container-fluid d-flex justify-content-center">
-      <a class="nav-link" routerLink="/home">Home</a>
-      <a class="nav-link" routerLink="/pelucia">Pelúcias</a>
-      <a class="nav-link" routerLink="/tcg">Cartas TCG</a>
-    </div>
-  </nav>
 </header>
