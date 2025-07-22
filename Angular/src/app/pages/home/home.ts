@@ -13,7 +13,7 @@ export class Home {
   ofertas = [
     {
       titulo: 'Pelúcia Wooper 20% OFF!',
-      link: '/pelucias',
+      link: '/pelucia',
       imagem: 'img/wopper-plush-background.png'
     },
     {
@@ -23,7 +23,7 @@ export class Home {
     },
     {
       titulo: 'Nova Pelúcia a Venda',
-      link: '/pelucias',
+      link: '/pelucia',
       imagem: 'img/fluttermane-plush-background.jpg'
     }
   ];
